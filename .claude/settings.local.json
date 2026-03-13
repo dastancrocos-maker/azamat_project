@@ -12,7 +12,9 @@
       "Bash(taskkill //F //PID 16392 2>&1; sleep 2 && cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next dev --turbopack 2>&1 | head -10)",
       "Bash(cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next dev --turbopack 2>&1 | head -8)",
       "Bash(taskkill //F //PID 21288 2>&1)",
-      "Bash(rm -f \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\\\\.next\\\\dev\\\\lock\" 2>/dev/null; cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next dev --turbopack 2>&1 | head -8)"
+      "Bash(rm -f \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\\\\.next\\\\dev\\\\lock\" 2>/dev/null; cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next dev --turbopack 2>&1 | head -8)",
+      "Bash(taskkill //F //PID 31648 2>&1)",
+      "Bash(cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && rm -f .next/dev/lock && npx next dev --turbopack)"
     ]
   }
 }

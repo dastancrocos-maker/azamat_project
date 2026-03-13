@@ -127,7 +127,13 @@ export default function Home() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: fileContent, fileName }),
       });
-      const data = await res.json();
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        throw new Error(text.slice(0, 200) || "Сервер вернул некорректный ответ");
+      }
       if (!res.ok) throw new Error(data.error || "Ошибка API");
       setAnalysisResult(data);
 
@@ -218,8 +224,12 @@ export default function Home() {
     });
 
     if (!res.ok) {
-      const err = await res.json();
-      alert("Ошибка: " + (err.error || "Не удалось сгенерировать файл"));
+      let msg = "Не удалось сгенерировать файл";
+      try {
+        const err = await res.json();
+        msg = err.error || msg;
+      } catch { /* not json */ }
+      alert("Ошибка: " + msg);
       return;
     }
 
