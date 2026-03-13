@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"C:/Users/Lenovo/Desktop/хакатон/my-next-app\" && npx next build 2>&1 | tail -20)",
+      "Bash(cd \"C:/Users/Lenovo/Desktop/хакатон/my-next-app\" && npx next build 2>&1 | tail -15)",
+      "Bash(cd \"C:/Users/Lenovo/Desktop/хакатон/my-next-app\" && npx next build 2>&1 | tail -25)",
+      "Bash(cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next build 2>&1 | tail -15)",
+      "WebFetch(domain:crocos.kz)",
+      "Bash(cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next build 2>&1 | tail -20)"
+    ]
+  }
+}
