@@ -6,7 +6,13 @@
       "Bash(cd \"C:/Users/Lenovo/Desktop/хакатон/my-next-app\" && npx next build 2>&1 | tail -25)",
       "Bash(cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next build 2>&1 | tail -15)",
       "WebFetch(domain:crocos.kz)",
-      "Bash(cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next build 2>&1 | tail -20)"
+      "Bash(cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next build 2>&1 | tail -20)",
+      "Bash(cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next build 2>&1 | tail -10)",
+      "Bash(cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next dev --turbopack 2>&1 | head -10)",
+      "Bash(taskkill //F //PID 16392 2>&1; sleep 2 && cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next dev --turbopack 2>&1 | head -10)",
+      "Bash(cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next dev --turbopack 2>&1 | head -8)",
+      "Bash(taskkill //F //PID 21288 2>&1)",
+      "Bash(rm -f \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\\\\.next\\\\dev\\\\lock\" 2>/dev/null; cd \"C:\\\\Users\\\\Lenovo\\\\Desktop\\\\хакатон\\\\my-next-app\" && npx next dev --turbopack 2>&1 | head -8)"
     ]
   }
 }

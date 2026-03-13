@@ -1,29 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #070a25;
-  --foreground: #ffffff;
-  --text-secondary: #8b8d9c;
-  --card-bg: rgba(88, 81, 250, 0.04);
-  --card-bg-solid: #0c0f2e;
-  --card-border: rgba(88, 81, 250, 0.12);
-  --card-border-hover: rgba(88, 81, 250, 0.25);
+  --background: #ffffff;
+  --foreground: #0a0f2c;
+  --text-secondary: #5a607a;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-bg-solid: #ffffff;
+  --card-border: rgba(10, 15, 44, 0.08);
+  --card-border-hover: rgba(10, 15, 44, 0.16);
   --accent: #0c84f3;
-  --accent-hover: #1a6be5;
-  --accent-light: rgba(12, 132, 243, 0.1);
-  --accent-glow: rgba(12, 132, 243, 0.25);
+  --accent-hover: #0a6fd0;
+  --accent-light: rgba(12, 132, 243, 0.08);
+  --accent-glow: rgba(12, 132, 243, 0.15);
   --secondary: #5851fa;
-  --secondary-light: rgba(88, 81, 250, 0.1);
-  --danger: #ff5924;
+  --secondary-light: rgba(88, 81, 250, 0.06);
+  --danger: #ef4444;
   --success: #0dc143;
-  --warning: #ffa442;
+  --warning: #f59e0b;
   --muted: #8b8d9c;
-  --input-bg: rgba(88, 81, 250, 0.04);
-  --input-border: rgba(88, 81, 250, 0.15);
+  --input-bg: #f5f7fa;
+  --input-border: rgba(10, 15, 44, 0.1);
   --gradient-1: linear-gradient(135deg, #5851fa 0%, #0c84f3 100%);
   --gradient-2: linear-gradient(135deg, #5851fa 0%, #0c84f3 50%, #3bc8f5 100%);
-  --gradient-3: linear-gradient(135deg, rgba(88,81,250,0.08) 0%, rgba(12,132,243,0.03) 100%);
-  --divider: rgba(88, 81, 250, 0.08);
+  --gradient-3: linear-gradient(135deg, rgba(88,81,250,0.06) 0%, rgba(12,132,243,0.03) 100%);
+  --divider: rgba(10, 15, 44, 0.06);
 }
 
 @theme inline {
@@ -47,7 +47,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* === Background === */
+/* === Floating logos background === */
 .bg-animation {
   position: fixed;
   top: 0;
@@ -59,43 +59,60 @@ html {
   overflow: hidden;
 }
 
-.bg-grain {
+.floating-logo {
   position: absolute;
-  inset: 0;
-  opacity: 0.02;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
+  opacity: 0.09;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-.bg-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.12;
+.floating-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-.bg-glow-1 {
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(88,81,250,0.4) 0%, transparent 70%);
-  top: -400px;
-  right: -200px;
-  animation: glowDrift 30s ease-in-out infinite;
+.fl-1 { width: 120px; height: 120px; top: 5%;  left: 8%;  animation: floatA 28s infinite; }
+.fl-2 { width: 80px;  height: 80px;  top: 15%; right: 12%; animation: floatB 32s infinite; animation-delay: -4s; }
+.fl-3 { width: 150px; height: 150px; top: 35%; left: 65%;  animation: floatC 26s infinite; animation-delay: -8s; }
+.fl-4 { width: 60px;  height: 60px;  top: 55%; left: 15%;  animation: floatD 30s infinite; animation-delay: -12s; }
+.fl-5 { width: 100px; height: 100px; top: 70%; right: 20%; animation: floatA 34s infinite; animation-delay: -6s; }
+.fl-6 { width: 90px;  height: 90px;  top: 85%; left: 40%;  animation: floatB 28s infinite; animation-delay: -16s; }
+.fl-7 { width: 70px;  height: 70px;  top: 25%; left: 35%;  animation: floatD 24s infinite; animation-delay: -10s; }
+.fl-8 { width: 110px; height: 110px; top: 50%; right: 5%;  animation: floatC 30s infinite; animation-delay: -3s; }
+.fl-9 { width: 55px;  height: 55px;  top: 10%; left: 50%;  animation: floatA 22s infinite; animation-delay: -14s; }
+.fl-10 { width: 85px; height: 85px;  top: 75%; left: 75%;  animation: floatD 26s infinite; animation-delay: -7s; }
+
+@keyframes floatA {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(40px, -60px) rotate(8deg); }
+  50%  { transform: translate(-30px, -20px) rotate(-5deg); }
+  75%  { transform: translate(20px, 40px) rotate(4deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
 
-.bg-glow-2 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(12,132,243,0.3) 0%, transparent 70%);
-  bottom: -200px;
-  left: -200px;
-  animation: glowDrift 25s ease-in-out infinite reverse;
+@keyframes floatB {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(-50px, 30px) rotate(-6deg); }
+  50%  { transform: translate(20px, 60px) rotate(8deg); }
+  75%  { transform: translate(-40px, -20px) rotate(-4deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
 
-@keyframes glowDrift {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(40px, -30px); }
+@keyframes floatC {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(30px, 50px) rotate(6deg); }
+  50%  { transform: translate(-50px, 20px) rotate(-8deg); }
+  75%  { transform: translate(10px, -40px) rotate(3deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes floatD {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(-20px, -50px) rotate(-7deg); }
+  50%  { transform: translate(40px, -10px) rotate(5deg); }
+  75%  { transform: translate(-30px, 30px) rotate(-3deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
 
 /* === Cards === */
@@ -103,12 +120,13 @@ html {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 16px;
+  backdrop-filter: blur(12px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-glass:hover {
   border-color: var(--card-border-hover);
-  background: rgba(88, 81, 250, 0.06);
+  box-shadow: 0 4px 24px rgba(10, 15, 44, 0.06);
 }
 
 /* === Buttons === */
@@ -127,7 +145,7 @@ html {
 
 .btn-primary:hover {
   background: var(--accent-hover);
-  box-shadow: 0 8px 32px rgba(12, 132, 243, 0.3);
+  box-shadow: 0 8px 32px rgba(12, 132, 243, 0.25);
   transform: translateY(-1px);
 }
 
@@ -153,7 +171,7 @@ html {
 
 /* === Section badge === */
 .section-badge {
-  background: var(--accent);
+  background: var(--gradient-1);
   color: #fff;
   width: 32px;
   height: 32px;
@@ -178,7 +196,8 @@ html {
 
 .input-styled:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(12, 132, 243, 0.12);
+  box-shadow: 0 0 0 3px rgba(12, 132, 243, 0.1);
+  background: #fff;
 }
 
 .input-styled::placeholder {
@@ -191,22 +210,22 @@ html {
 }
 
 .logo-animated:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 /* === Scrollbar === */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(88, 81, 250, 0.2);
-  border-radius: 2px;
+  background: rgba(10, 15, 44, 0.12);
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(88, 81, 250, 0.35);
+  background: rgba(10, 15, 44, 0.2);
 }
 
 /* === Animations === */
@@ -218,17 +237,6 @@ html {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
   }
 }
 
@@ -253,10 +261,6 @@ html {
 .animate-in-delay-4 { animation-delay: 0.32s; opacity: 0; }
 .animate-in-delay-5 { animation-delay: 0.4s; opacity: 0; }
 
-.animate-scale {
-  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
 /* === Spinner === */
 @keyframes spin {
   to { transform: rotate(360deg); }
@@ -265,23 +269,11 @@ html {
   animation: spin 1s linear infinite;
 }
 
-/* === Divider line === */
+/* === Divider === */
 .divider {
   height: 1px;
   background: var(--divider);
   border: none;
-}
-
-/* === Marquee (crocos-style) === */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 30s linear infinite;
 }
 
 /* === Selection === */

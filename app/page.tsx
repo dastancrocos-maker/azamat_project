@@ -37,6 +37,7 @@ export default function Home() {
   const [dragActive, setDragActive] = useState(false);
   const [openRole, setOpenRole] = useState<Role | null>(null);
   const [saved, setSaved] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [analyzing, setAnalyzing] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null);
   const [analysisError, setAnalysisError] = useState<string | null>(null);
@@ -166,7 +167,9 @@ export default function Home() {
     existing.unshift(record);
     localStorage.setItem("projects", JSON.stringify(existing));
     setSaved(true);
+    setShowSuccess(true);
     setTimeout(() => setSaved(false), 2000);
+    setTimeout(() => setShowSuccess(false), 3000);
   };
 
   const roles: Role[] = [
@@ -227,6 +230,8 @@ export default function Home() {
     a.download = `${projectName || "Смета"}.xlsx`;
     a.click();
     URL.revokeObjectURL(url);
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 3000);
   };
 
   const buildDefaultStages = (): Stage[] => {
@@ -366,8 +371,8 @@ export default function Home() {
                 dragActive ? "scale-[1.005]" : ""
               }`}
               style={{
-                border: `1px dashed ${dragActive ? "var(--accent)" : "rgba(88,81,250,0.12)"}`,
-                background: dragActive ? "var(--accent-light)" : "rgba(88,81,250,0.03)",
+                border: `1px dashed ${dragActive ? "var(--accent)" : "rgba(10,15,44,0.08)"}`,
+                background: dragActive ? "var(--accent-light)" : "rgba(10,15,44,0.02)",
               }}
               onDragEnter={handleDrag}
               onDragLeave={handleDrag}
@@ -433,7 +438,7 @@ export default function Home() {
                 disabled={analyzing}
                 className="mt-5 w-full py-3.5 rounded-lg text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2"
                 style={{
-                  background: analyzing ? "rgba(88,81,250,0.08)" : "var(--accent)",
+                  background: analyzing ? "rgba(10,15,44,0.06)" : "var(--accent)",
                   color: "#fff",
                   opacity: analyzing ? 0.7 : 1,
                 }}
@@ -466,8 +471,8 @@ export default function Home() {
               <div
                 className="mt-5 rounded-xl p-6"
                 style={{
-                  background: "rgba(88,81,250,0.04)",
-                  border: "1px solid rgba(88,81,250,0.15)",
+                  background: "rgba(12,132,243,0.04)",
+                  border: "1px solid rgba(12,132,243,0.15)",
                 }}
               >
                 <p
@@ -484,7 +489,7 @@ export default function Home() {
                     <div
                       key={t.role}
                       className="flex items-center gap-3 p-3 rounded-lg"
-                      style={{ background: "rgba(88,81,250,0.04)", border: "1px solid rgba(88,81,250,0.08)" }}
+                      style={{ background: "rgba(12,132,243,0.04)", border: "1px solid rgba(10,15,44,0.06)" }}
                     >
                       <span className="text-lg shrink-0">{roleLabels[t.role]?.icon}</span>
                       <div className="flex-1 min-w-0">
@@ -514,7 +519,7 @@ export default function Home() {
             {/* Mode Toggle */}
             <div
               className="inline-flex rounded-lg overflow-hidden mb-6"
-              style={{ border: "1px solid rgba(88,81,250,0.12)" }}
+              style={{ border: "1px solid rgba(10,15,44,0.08)" }}
             >
               <button
                 className="py-2.5 px-6 text-xs font-medium transition-all duration-300"
@@ -549,8 +554,8 @@ export default function Home() {
                       key={member.role}
                       className="rounded-xl p-4 transition-all duration-300"
                       style={{
-                        background: member.enabled ? "rgba(88,81,250,0.04)" : "rgba(88,81,250,0.03)",
-                        border: `1px solid ${member.enabled ? "rgba(88,81,250,0.15)" : "rgba(88,81,250,0.08)"}`,
+                        background: member.enabled ? "rgba(12,132,243,0.04)" : "rgba(10,15,44,0.02)",
+                        border: `1px solid ${member.enabled ? "rgba(12,132,243,0.15)" : "rgba(10,15,44,0.06)"}`,
                         opacity: member.enabled ? 1 : 0.5,
                       }}
                     >
@@ -565,7 +570,7 @@ export default function Home() {
                             />
                             <div
                               className="w-9 h-5 rounded-full transition-colors duration-300"
-                              style={{ background: member.enabled ? "var(--accent)" : "rgba(88,81,250,0.12)" }}
+                              style={{ background: member.enabled ? "var(--accent)" : "rgba(10,15,44,0.08)" }}
                             >
                               <div
                                 className="w-3.5 h-3.5 rounded-full bg-white transition-transform duration-300"
@@ -638,8 +643,8 @@ export default function Home() {
                         key={role}
                         className="rounded-xl overflow-hidden transition-all duration-300"
                         style={{
-                          background: selected.length > 0 ? "rgba(88,81,250,0.04)" : "rgba(88,81,250,0.03)",
-                          border: `1px solid ${selected.length > 0 ? "rgba(88,81,250,0.15)" : "rgba(88,81,250,0.08)"}`,
+                          background: selected.length > 0 ? "rgba(12,132,243,0.04)" : "rgba(10,15,44,0.02)",
+                          border: `1px solid ${selected.length > 0 ? "rgba(12,132,243,0.15)" : "rgba(10,15,44,0.06)"}`,
                         }}
                       >
                         <button
@@ -680,8 +685,8 @@ export default function Home() {
                                     key={person.id}
                                     className="rounded-lg p-3 transition-all duration-300"
                                     style={{
-                                      background: isSelected ? "rgba(88,81,250,0.06)" : "rgba(88,81,250,0.04)",
-                                      border: `1px solid ${isSelected ? "rgba(88,81,250,0.2)" : "rgba(88,81,250,0.08)"}`,
+                                      background: isSelected ? "rgba(12,132,243,0.06)" : "rgba(12,132,243,0.04)",
+                                      border: `1px solid ${isSelected ? "rgba(12,132,243,0.2)" : "rgba(10,15,44,0.06)"}`,
                                     }}
                                   >
                                     <div className="flex flex-wrap items-center gap-3">
@@ -697,7 +702,7 @@ export default function Home() {
                                             className="w-5 h-5 rounded flex items-center justify-center text-xs transition-all duration-200"
                                             style={{
                                               background: isSelected ? "var(--accent)" : "transparent",
-                                              border: `1.5px solid ${isSelected ? "var(--accent)" : "rgba(88,81,250,0.2)"}`,
+                                              border: `1.5px solid ${isSelected ? "var(--accent)" : "rgba(12,132,243,0.2)"}`,
                                               color: "#fff",
                                             }}
                                           >
@@ -752,7 +757,7 @@ export default function Home() {
                 {selectedPeople.length > 0 && (
                   <div
                     className="mt-5 rounded-xl p-4"
-                    style={{ background: "rgba(88,81,250,0.03)", border: "1px solid rgba(88,81,250,0.08)" }}
+                    style={{ background: "rgba(10,15,44,0.02)", border: "1px solid rgba(10,15,44,0.06)" }}
                   >
                     <p className="text-xs font-medium uppercase tracking-wider mb-3" style={{ color: "var(--muted)" }}>
                       Выбранные специалисты
@@ -764,7 +769,7 @@ export default function Home() {
                           className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg"
                           style={{ background: "var(--accent-light)", color: "var(--accent)" }}
                         >
-                          {roleLabels[p.role].icon} {p.name}
+                          {roleLabels[p.role]?.icon} {p.name}
                           <button
                             className="ml-1 hover:opacity-70 transition-opacity"
                             onClick={() => togglePerson(p)}
@@ -790,8 +795,8 @@ export default function Home() {
               <div
                 className="rounded-xl p-4 flex items-center justify-between cursor-pointer transition-all duration-300"
                 style={{
-                  background: withNDS ? "rgba(88,81,250,0.04)" : "rgba(88,81,250,0.03)",
-                  border: `1px solid ${withNDS ? "rgba(88,81,250,0.15)" : "rgba(88,81,250,0.08)"}`,
+                  background: withNDS ? "rgba(12,132,243,0.04)" : "rgba(10,15,44,0.02)",
+                  border: `1px solid ${withNDS ? "rgba(12,132,243,0.15)" : "rgba(10,15,44,0.06)"}`,
                 }}
                 onClick={() => setWithNDS(!withNDS)}
               >
@@ -803,7 +808,7 @@ export default function Home() {
                 </div>
                 <div
                   className="w-9 h-5 rounded-full transition-colors duration-300"
-                  style={{ background: withNDS ? "var(--accent)" : "rgba(88,81,250,0.12)" }}
+                  style={{ background: withNDS ? "var(--accent)" : "rgba(10,15,44,0.08)" }}
                 >
                   <div
                     className="w-3.5 h-3.5 rounded-full bg-white transition-transform duration-300"
@@ -815,7 +820,7 @@ export default function Home() {
               </div>
               <div
                 className="rounded-xl p-4 mt-3"
-                style={{ background: "rgba(88,81,250,0.03)", border: "1px solid rgba(88,81,250,0.08)" }}
+                style={{ background: "rgba(10,15,44,0.02)", border: "1px solid rgba(10,15,44,0.06)" }}
               >
                 <p className="font-medium text-sm">Административные расходы 30%</p>
                 <p className="text-xs mt-0.5" style={{ color: "var(--muted)" }}>
@@ -843,8 +848,8 @@ export default function Home() {
           <section
             className="card-glass p-7"
             style={{
-              borderColor: "rgba(88,81,250,0.2)",
-              background: "rgba(88,81,250,0.03)",
+              borderColor: "rgba(12,132,243,0.2)",
+              background: "rgba(10,15,44,0.02)",
             }}
           >
             <h2 className="text-base font-semibold mb-6 flex items-center gap-3">
@@ -916,6 +921,27 @@ export default function Home() {
           Все расчёты являются предварительными и могут быть скорректированы
         </p>
       </div>
+
+      {/* Success popup */}
+      {showSuccess && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center"
+          style={{ background: "rgba(0,0,0,0.4)", backdropFilter: "blur(4px)" }}
+          onClick={() => setShowSuccess(false)}
+        >
+          <div
+            className="animate-in"
+            style={{ maxWidth: 340 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src="/success.png"
+              alt="Готово!"
+              className="w-full h-auto drop-shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

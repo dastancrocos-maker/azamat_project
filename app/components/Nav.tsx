@@ -16,9 +16,9 @@ export default function Nav() {
     <nav
       className="sticky top-0 z-50"
       style={{
-        background: "rgba(7, 10, 37, 0.9)",
+        background: "rgba(255, 255, 255, 0.85)",
         backdropFilter: "blur(20px)",
-        borderBottom: "1px solid rgba(88, 81, 250, 0.08)",
+        borderBottom: "1px solid rgba(10, 15, 44, 0.06)",
       }}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">

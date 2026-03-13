@@ -46,7 +46,7 @@ export default function Logo({ size = 28 }: { size?: number }) {
       <div className="flex flex-col">
         <span
           className="font-bold text-sm tracking-tight leading-none"
-          style={{ color: "#ffffff" }}
+          style={{ color: "#0a0f2c" }}
         >
           CROCOS
         </span>

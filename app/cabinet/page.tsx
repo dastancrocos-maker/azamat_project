@@ -94,7 +94,7 @@ export default function CabinetPage() {
           <div
             className="card-glass rounded-xl p-16 text-center animate-in animate-in-delay-3"
           >
-            <div className="w-16 h-16 rounded-xl mx-auto mb-5 flex items-center justify-center" style={{ background: "rgba(88,81,250,0.04)" }}>
+            <div className="w-16 h-16 rounded-xl mx-auto mb-5 flex items-center justify-center" style={{ background: "rgba(10,15,44,0.02)" }}>
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ color: "var(--muted)" }}>
                 <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
               </svg>
@@ -117,7 +117,7 @@ export default function CabinetPage() {
                   key={project.id}
                   className="card-glass rounded-xl overflow-hidden"
                   style={{
-                    borderColor: isExpanded ? "rgba(88,81,250,0.2)" : undefined,
+                    borderColor: isExpanded ? "rgba(12,132,243,0.15)" : undefined,
                   }}
                 >
                   {/* Row header */}
@@ -141,7 +141,7 @@ export default function CabinetPage() {
                           {project.fileName && (
                             <span
                               className="text-xs px-2 py-0.5 rounded"
-                              style={{ background: "rgba(88,81,250,0.04)", color: "var(--text-secondary)" }}
+                              style={{ background: "rgba(10,15,44,0.02)", color: "var(--text-secondary)" }}
                             >
                               {project.fileName}
                             </span>
@@ -197,10 +197,10 @@ export default function CabinetPage() {
                                     <div
                                       key={m.role}
                                       className="flex items-center justify-between p-3 rounded-lg"
-                                      style={{ background: "rgba(88,81,250,0.03)", border: "1px solid rgba(88,81,250,0.08)" }}
+                                      style={{ background: "rgba(10,15,44,0.02)", border: "1px solid rgba(10,15,44,0.06)" }}
                                     >
                                       <div className="flex items-center gap-2">
-                                        <span>{roleLabels[m.role].icon}</span>
+                                        <span>{roleLabels[m.role]?.icon}</span>
                                         <span className="text-sm">{m.label}</span>
                                       </div>
                                       <div className="text-right">
@@ -215,10 +215,10 @@ export default function CabinetPage() {
                                   <div
                                     key={p.id}
                                     className="flex items-center justify-between p-3 rounded-lg"
-                                    style={{ background: "rgba(88,81,250,0.03)", border: "1px solid rgba(88,81,250,0.08)" }}
+                                    style={{ background: "rgba(10,15,44,0.02)", border: "1px solid rgba(10,15,44,0.06)" }}
                                   >
                                     <div className="flex items-center gap-2">
-                                      <span>{roleLabels[p.role].icon}</span>
+                                      <span>{roleLabels[p.role]?.icon}</span>
                                       <span className="text-sm">{p.name}</span>
                                     </div>
                                     <div className="text-right">
@@ -245,7 +245,7 @@ export default function CabinetPage() {
                           </p>
                           <div
                             className="rounded-xl p-4"
-                            style={{ background: "rgba(88,81,250,0.03)", border: "1px solid rgba(88,81,250,0.08)" }}
+                            style={{ background: "rgba(10,15,44,0.02)", border: "1px solid rgba(10,15,44,0.06)" }}
                           >
                             <div className="grid gap-2.5">
                               <div className="flex justify-between text-sm">
@@ -277,7 +277,7 @@ export default function CabinetPage() {
                               </p>
                               <p
                                 className="text-sm p-3 rounded-lg"
-                                style={{ background: "rgba(88,81,250,0.03)", border: "1px solid rgba(88,81,250,0.08)" }}
+                                style={{ background: "rgba(10,15,44,0.02)", border: "1px solid rgba(10,15,44,0.06)" }}
                               >
                                 {project.note}
                               </p>
